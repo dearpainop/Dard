@@ -29,6 +29,26 @@ except Exception as e:
 
     print(f"Failed to set execute permission: {e}")
     
+
+# Keep-Alive Function
+def keep_alive():
+    print("Keeping Codespace alive by performing periodic activity...")
+    try:
+        response = requests.get("https://www.google.com")
+        if response.status_code == 200:
+            print("Ping successful. Codespace is still active.")
+        else:
+            print(f"Ping failed with status code: {response.status_code}")
+    except Exception as e:
+        print(f"An error occurred during ping: {e}")
+
+# Keep-Alive Thread
+def start_keep_alive_thread():
+    while True:
+        keep_alive()
+        time.sleep(300)  # Sleep for 5 minutes (300 seconds) before the next ping
+
+
 TOKEN = '7385947182:AAHvAtoo8R5XtdJ83Ibgcqo2giJ4cJJzteM'
 MONGO_URI = 'mongodb+srv://VIKASH:BadnamBadshah@cluster0.jv9he.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&tlsAllowInvalidCertificates=true'
 FORWARD_CHANNEL_ID = -1002226609740
